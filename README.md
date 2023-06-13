@@ -808,9 +808,16 @@ You may check out the [Cookies](#cookies) to learn more about it.
 You may use the ```whitelistCookie``` to add a cookie the whitelist meaning no encryption/decryption is done.
 
 ```php
-use Tobento\Service\Cookie\CookiesInterface;
-
 $processor->whitelistCookie(name: 'foo');
+```
+
+**whitelistedCookies**
+
+Returns the whitelisted cookies.
+
+```php
+$whitelistedCookies = $processor->whitelistedCookies();
+// array<int, string>
 ```
 
 # Credits
