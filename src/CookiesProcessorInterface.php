@@ -27,6 +27,13 @@ interface CookiesProcessorInterface
     public function whitelistCookie(string $name): static;
     
     /**
+     * Returns the whitelisted cookies.
+     *
+     * @return array<int, string>
+     */
+    public function whitelistedCookies(): array;
+    
+    /**
      * Process cookie values.
      *
      * @param CookieValuesInterface $cookieValues

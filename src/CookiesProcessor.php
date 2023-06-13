@@ -46,6 +46,16 @@ class CookiesProcessor implements CookiesProcessorInterface
     }
     
     /**
+     * Returns the whitelisted cookies.
+     *
+     * @return array<int, string>
+     */
+    public function whitelistedCookies(): array
+    {
+        return $this->whitelistedCookies;
+    }
+    
+    /**
      * Process cookie values.
      *
      * @param CookieValuesInterface $cookieValues

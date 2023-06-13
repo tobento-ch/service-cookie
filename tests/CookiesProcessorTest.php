@@ -51,6 +51,26 @@ class CookiesProcessorTest extends TestCase
         $this->assertSame('value', $cookieValues->get('name'));
     }
     
+    public function testWhitelistMethods()
+    {
+        $processor = new CookiesProcessor(
+            encrypter: null,
+            whitelistedCookies: ['foo'],
+        );
+
+        $this->assertSame(['foo'], $processor->whitelistedCookies());
+        
+        $processor = new CookiesProcessor(
+            encrypter: null,
+            whitelistedCookies: ['foo'],
+        );
+        
+        $processor->whitelistCookie('bar');
+        $processor->whitelistCookie('another');
+
+        $this->assertSame(['foo', 'bar', 'another'], $processor->whitelistedCookies());
+    }
+    
     public function testProcessMethodsWithEncrypterAndWhitelist()
     {
         $key = (new Crypto\KeyGenerator())->generateKey();
